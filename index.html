@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form fields change detect JS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3>Form fields change detect JS plugins</h3>
+        <br>
+        <form action="" id="filter-form">
+            <div class="row">
+                <div class="col-lg-3">
+                    <label for="start_date" class="form-label mb-0">Start date (UTC)</label>
+                    <input type="date" id="start_date" name="start_date"
+                           class="form-control form-control-sm" value="{{ $fromDate }}">
+                </div>
+                <div class="col-lg-3">
+                    <label for="end_date" class="form-label mb-0">End date (UTC)</label>
+                    <input type="date" id="end_date" name="end_date"
+                           class="form-control form-control-sm"
+                           value="{{ $toDate }}">
+                </div>
+                <div class="col-lg-2">
+                    <label class="form-label mb-0">Granularity</label>
+                    <select class="form-select form-select-sm" name="granularity"
+                            style="background-image: url({{ asset('images/select-icon.png') }})">
+                        <option value="1" selected>Daily</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <label class="form-label mb-0">Show</label>
+                    <select class="form-select form-select-sm" name="granularity"
+                            style="background-image: url({{ asset('images/select-icon.png') }})">
+                        <option value="cost" selected>Cost</option>
+                        <option value="usage">Usage</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-check mb-0">
+                            <input class="form-check-input" type="checkbox" value="" id="forecast"
+                                   name="forecast">
+                            <label class="form-check-label" for="forecast"> Show Forecast </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label class="form-label mb-0">Filters</label>
+                        <select class="form-select" name="granularity"
+                                style="background-image: url({{ asset('images/down-arrow.svg') }})">
+                            <option value="" selected>Add filter</option>
+                            <option value="region">Region</option>
+                            <option value="service">Service</option>
+                            <option value="resource">Resource OCID</option>
+                            <option value="productDescription">Product Description</option>
+                            <option value="sku">SKU (Part Number)</option>
+                            <option value="tenant">Tenant</option>
+                            <option value="unit">Unit</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-4">
+                        <label class="form-label mb-0">Grouping Dimensions</label>
+                        <select name="grp_dimension" class="form-select"
+                                style="background-image: url({{ asset('images/select-icon.png') }})"
+                                id="grp_dimension">
+                            <option value="" selected>Select a Grouping Dimension</option>
+                            <option value="1">Availability Domain</option>
+                            <option value="1">Compartment</option>
+                            <option value="1">Platform</option>
+                            <option value="1">Region</option>
+                            <option value="1">Resource OCID</option>
+                            <option value="1">Service</option>
+                            <option value="1">Service and Product Description</option>
+                            <option value="1">Service and SKU (Part Number)</option>
+                            <option value="1">SKU (Part Number)</option>
+                            <option value="1">SKU (Product Description)</option>
+                            <option value="1">Subscription ID</option>
+                            <option value="1">Tag</option>
+                            <option value="1">Tenant ID</option>
+                            <option value="1">Tenant Name</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-2">
+                        <button type="button" id="filterBtn" disabled class="btn btn-secondary" style="width: 100px">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
